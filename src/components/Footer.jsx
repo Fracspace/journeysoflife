@@ -11,16 +11,13 @@ export default function Footer() {
           
           {/* COLUMN 1 - BRAND */}
           <div className="flex flex-col gap-5">
-            <Link href="/" className="flex items-center gap-3.5 text-[#F8F5EF]">
-              <span className="font-caveat text-[34px] text-primary leading-none">jl</span>
-              <span className="block border-l border-[#B38A42]/30 pl-3.5">
-                <span className="block font-cormorant font-semibold tracking-[0.18em] text-[19px] leading-none">
-                  JOURNEYS
-                </span>
-                <span className="block text-[9px] tracking-[0.42em] text-[#D6B36A] mt-0.5">
-                  OF LIFE
-                </span>
-              </span>
+            <Link href="/" className="flex items-center text-[#F8F5EF]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img 
+                src="/logo3.png" 
+                alt="Journeys of Life" 
+                className="h-14 md:h-16 w-auto object-contain brightness-0 invert"
+              />
             </Link>
             <p className="font-cormorant italic text-[20px] leading-relaxed text-[#F8F5EF]/80">
               Your story. Beautifully told.

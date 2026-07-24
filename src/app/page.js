@@ -124,18 +124,7 @@ export default function Home() {
                       <path d="M5 12h14M13 6l6 6-6 6" />
                     </svg>
                   </Link>
-                  <button
-                    onClick={() => openVideo("Sample Family Film", "https://www.w3schools.com/html/mov_bbb.mp4")}
-                    className="inline-flex items-center gap-3 text-text-dark text-[12.5px] tracking-[0.14em] uppercase font-semibold"
-                  >
-                    <span className="relative flex items-center justify-center w-11 h-11 border border-primary rounded-full">
-                      <span className="absolute inset-[-1px] border border-primary rounded-full pulse-ring"></span>
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="#B38A42">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </span>
-                    Watch Sample Film
-                  </button>
+
                 </div>
               </Reveal>
 

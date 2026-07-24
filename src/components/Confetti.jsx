@@ -21,6 +21,7 @@ export default function Confetti() {
         animationDuration: `${5 + Math.random() * 4}s`,
       });
     }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setParticles(tempParticles);
   }, []);
 

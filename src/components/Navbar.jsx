@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import logo2Img from '../../public/logo3.png';
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,24 +36,20 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-[#F8F5EF]/92 backdrop-blur-md shadow-[0_1px_0_rgba(110,86,68,0.12),0_10px_30px_-18px_rgba(110,86,68,0.4)] py-3"
-          : "bg-transparent py-6"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+        ? "bg-[#F8F5EF]/92 backdrop-blur-md shadow-[0_1px_0_rgba(110,86,68,0.12),0_10px_30px_-18px_rgba(110,86,68,0.4)] py-3"
+        : "bg-transparent py-6"
+        }`}
     >
       <div className="max-w-[1320px] mx-auto px-6 md:px-10 flex items-center justify-between gap-6">
         {/* LOGO */}
-        <Link href="/" className="flex items-center gap-3.5 text-inherit">
-          <span className="font-caveat text-[34px] text-primary leading-none">jl</span>
-          <span className="block border-l border-primary-dark/35 pl-3.5">
-            <span className="block font-cormorant font-semibold tracking-[0.18em] text-[19px] text-[#2A241F] leading-none">
-              JOURNEYS
-            </span>
-            <span className="block text-[9px] tracking-[0.42em] text-[#7C7267] mt-0.5">
-              OF LIFE
-            </span>
-          </span>
+        <Link href="/" className="flex items-center text-inherit">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo3.png"
+            alt="Journeys of Life"
+            className="h-16 md:h-25 w-auto object-contain"
+          />
         </Link>
 
         {/* DESKTOP NAVLINKS */}
@@ -60,11 +58,10 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`transition-colors duration-300 ${
-                isLinkActive(link.href)
-                  ? "text-primary"
-                  : "text-[#2A241F] hover:text-primary"
-              }`}
+              className={`transition-colors duration-300 ${isLinkActive(link.href)
+                ? "text-primary"
+                : "text-[#2A241F] hover:text-primary"
+                }`}
             >
               {link.name}
             </Link>
@@ -105,11 +102,10 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className={`text-[14px] tracking-[0.14em] uppercase py-2 border-b border-[#6E5644]/5 transition-colors duration-300 ${
-                isLinkActive(link.href)
-                  ? "text-primary font-semibold"
-                  : "text-[#2A241F] hover:text-primary"
-              }`}
+              className={`text-[14px] tracking-[0.14em] uppercase py-2 border-b border-[#6E5644]/5 transition-colors duration-300 ${isLinkActive(link.href)
+                ? "text-primary font-semibold"
+                : "text-[#2A241F] hover:text-primary"
+                }`}
             >
               {link.name}
             </Link>

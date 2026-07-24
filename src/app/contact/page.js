@@ -9,7 +9,7 @@ import { load } from "@cashfreepayments/cashfree-js";
 import { Upload, ShieldCheck, Sparkles, Loader2 } from "lucide-react";
 
 import img2 from "../../../public/assets/contact/img1.png";
-import img1 from "../../../public/assets/contact/img2.png";
+import img1 from "../../../public/assets/contact/img3.png";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({

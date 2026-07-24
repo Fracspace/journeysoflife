@@ -15,8 +15,8 @@ function PaymentSuccessContent() {
   const userId = searchParams.get("userId");
   const cashfreePaymentId = searchParams.get("cashfreePaymentId") || searchParams.get("cf_payment_id") || searchParams.get("paymentId") || "";
 
-  const [verificationStatus, setVerificationStatus] = useState("loading"); // loading, success, failed
-  const [errorMessage, setErrorMessage] = useState("");
+  const [verificationStatus, setVerificationStatus] = useState((!orderId || !cashfreeOrderId) ? "failed" : "loading"); // loading, success, failed
+  const [errorMessage, setErrorMessage] = useState((!orderId || !cashfreeOrderId) ? "Missing order parameter details from the redirection URL." : "");
   const [orderDetails, setOrderDetails] = useState(null);
   const [verifiedUserId, setVerifiedUserId] = useState("");
 
@@ -31,8 +31,6 @@ function PaymentSuccessContent() {
 
   useEffect(() => {
     if (!orderId || !cashfreeOrderId) {
-      setVerificationStatus("failed");
-      setErrorMessage("Missing order parameter details from the redirection URL.");
       return;
     }
 
@@ -308,83 +306,83 @@ function PaymentSuccessContent() {
         <form onSubmit={handleFormSubmit} className="space-y-6">
           {/* Drive Link field */}
           <div className="space-y-2">
-            <div className="flex flex-col gap-1">
-              <label htmlFor="driveLink" className="font-sans text-xs font-semibold uppercase tracking-wider text-text-dark">
-                Google Drive / Dropbox / OneDrive Link
-              </label>
-              <p className="text-xs text-text-gray font-normal leading-relaxed">
-                Provide the folder URL containing all project assets (photos, videos, reference materials, and any other relevant files).
-              </p>
-              <div className="flex items-center gap-1.5 text-[11px] text-primary font-normal font-sans pt-0.5">
-                <Info size={13} className="shrink-0 text-primary" />
-                <span>Share access with <strong className="font-semibold">support@journeysoflife.co</strong> or ensure the link is set to public.</span>
-              </div>
+          <div className="flex flex-col gap-1">
+            <label htmlFor="driveLink" className="font-sans text-xs font-semibold uppercase tracking-wider text-text-dark">
+              Google Drive / Dropbox / OneDrive Link
+            </label>
+            <p className="text-xs text-text-gray font-normal leading-relaxed">
+              Provide the folder URL containing all project assets (photos, videos, reference materials, and any other relevant files).
+            </p>
+            <div className="flex items-center gap-1.5 text-[11px] text-primary font-normal font-sans pt-0.5">
+              <Info size={13} className="shrink-0 text-primary" />
+              <span>Share access with <strong className="font-semibold">support@journeysoflife.co</strong> or ensure the link is set to public.</span>
             </div>
-            <input
-              id="driveLink"
-              type="url"
-              value={formData.driveLink}
-              onChange={(e) => {
-                setFormData({ ...formData, driveLink: e.target.value });
-                if (formErrors.driveLink) setFormErrors({ ...formErrors, driveLink: "" });
-              }}
-              placeholder="e.g. https://drive.google.com/drive/folders/..."
-              className={`w-full rounded-xl border px-4 py-3.5 text-sm font-sans outline-none transition duration-300 ${formErrors.driveLink
-                ? "border-red-400 bg-red-50/10 focus:border-red-500 focus:ring-4 focus:ring-red-500/5"
-                : "border-[#6E5644]/20 bg-[#F8F5EF]/30 focus:border-primary focus:ring-4 focus:ring-primary/5"
-                }`}
-            />
-            {formErrors.driveLink && <p className="text-xs text-red-500 font-sans mt-1">{formErrors.driveLink}</p>}
           </div>
+          <input
+            id="driveLink"
+            type="url"
+            value={formData.driveLink}
+            onChange={(e) => {
+              setFormData({ ...formData, driveLink: e.target.value });
+              if (formErrors.driveLink) setFormErrors({ ...formErrors, driveLink: "" });
+            }}
+            placeholder="e.g. https://drive.google.com/drive/folders/..."
+            className={`w-full rounded-xl border px-4 py-3.5 text-sm font-sans outline-none transition duration-300 ${formErrors.driveLink
+              ? "border-red-400 bg-red-50/10 focus:border-red-500 focus:ring-4 focus:ring-red-500/5"
+              : "border-[#6E5644]/20 bg-[#F8F5EF]/30 focus:border-primary focus:ring-4 focus:ring-primary/5"
+              }`}
+          />
+          {formErrors.driveLink && <p className="text-xs text-red-500 font-sans mt-1">{formErrors.driveLink}</p>}
+        </div>
 
-          {/* Description field */}
-          <div className="space-y-2">
-            <div className="flex flex-col gap-1">
-              <label htmlFor="description" className="font-sans text-xs font-semibold uppercase tracking-wider text-text-dark">
-                Creative Vision &amp; Special Instructions
-              </label>
-              <p className="text-xs text-text-gray font-normal leading-relaxed">
-                Share your project details, creative vision, timeline, preferred style, and any special requirements or instructions for your film.
-              </p>
-            </div>
-            <textarea
-              id="description"
-              rows={6}
-              value={formData.description}
-              onChange={(e) => {
-                setFormData({ ...formData, description: e.target.value });
-                if (formErrors.description) setFormErrors({ ...formErrors, description: "" });
-              }}
-              placeholder="Please share special instructions (e.g., chronological order, focus on grandfather's speech at the 20th minute, include wedding anniversary dates, etc.)...."
-              className={`w-full rounded-xl border px-4 py-3.5 text-sm font-sans outline-none transition duration-300 resize-y ${formErrors.description
-                ? "border-red-400 bg-red-50/10 focus:border-red-500 focus:ring-4 focus:ring-red-500/5"
-                : "border-[#6E5644]/20 bg-[#F8F5EF]/30 focus:border-primary focus:ring-4 focus:ring-primary/5"
-                }`}
-            />
-            {formErrors.description && <p className="text-xs text-red-500 font-sans mt-1">{formErrors.description}</p>}
+        {/* Description field */}
+        <div className="space-y-2">
+          <div className="flex flex-col gap-1">
+            <label htmlFor="description" className="font-sans text-xs font-semibold uppercase tracking-wider text-text-dark">
+              Creative Vision &amp; Special Instructions
+            </label>
+            <p className="text-xs text-text-gray font-normal leading-relaxed">
+              Share your project details, creative vision, timeline, preferred style, and any special requirements or instructions for your film.
+            </p>
           </div>
+          <textarea
+            id="description"
+            rows={6}
+            value={formData.description}
+            onChange={(e) => {
+              setFormData({ ...formData, description: e.target.value });
+              if (formErrors.description) setFormErrors({ ...formErrors, description: "" });
+            }}
+            placeholder="Please share special instructions (e.g., chronological order, focus on grandfather's speech at the 20th minute, include wedding anniversary dates, etc.)..."
+            className={`w-full rounded-xl border px-4 py-3.5 text-sm font-sans outline-none transition duration-300 resize-y ${formErrors.description
+              ? "border-red-400 bg-red-50/10 focus:border-red-500 focus:ring-4 focus:ring-red-500/5"
+              : "border-[#6E5644]/20 bg-[#F8F5EF]/30 focus:border-primary focus:ring-4 focus:ring-primary/5"
+              }`}
+          />
+          {formErrors.description && <p className="text-xs text-red-500 font-sans mt-1">{formErrors.description}</p>}
+        </div>
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={isFormSubmitting}
-            className="w-full cursor-pointer rounded-full bg-[#1E1B18] text-[#F8F5EF] py-4 text-xs font-semibold uppercase tracking-[0.18em] transition-all duration-400 hover:bg-primary hover:text-[#1E1B18] disabled:bg-neutral-300 disabled:text-neutral-500 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
-          >
-            {isFormSubmitting ? (
-              <>
-                <Loader2 className="animate-spin h-4 w-4" />
-                <span>Submitting Your Project...</span>
-              </>
-            ) : (
-              <>
-                <Upload size={14} />
-                <span>Complete Request &amp; Submit</span>
-              </>
-            )}
-          </button>
-        </form>
-      </div>
+        {/* Submit Button */}
+        <button
+          type="submit"
+          disabled={isFormSubmitting}
+          className="w-full cursor-pointer rounded-full bg-[#1E1B18] text-[#F8F5EF] py-4 text-xs font-semibold uppercase tracking-[0.18em] transition-all duration-400 hover:bg-primary hover:text-[#1E1B18] disabled:bg-neutral-300 disabled:text-neutral-500 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+        >
+          {isFormSubmitting ? (
+            <>
+              <Loader2 className="animate-spin h-4 w-4" />
+              <span>Submitting Your Project...</span>
+            </>
+          ) : (
+            <>
+              <Upload size={14} />
+              <span>Complete Request &amp; Submit</span>
+            </>
+          )}
+        </button>
+      </form>
     </div>
+    </div >
   );
 }
 
