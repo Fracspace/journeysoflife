@@ -72,7 +72,7 @@ export default function ContactPage() {
     if (!validate()) return;
     setIsSubmitting(true);
 
-    console.log("ocasion", formData?.occasion);
+    // console.log("ocasion", formData?.occasion);
 
     try {
       const response = await fetch(
@@ -95,7 +95,7 @@ export default function ContactPage() {
       );
 
       const data = await response.json();
-      console.log("API Response:", data);
+      // console.log("API Response:", data);
 
       if (data.success) {
         const userId = data.data?.user?.id;
@@ -119,7 +119,7 @@ export default function ContactPage() {
                 },
                 body: JSON.stringify({
                   userId: userId,
-                  amount: 1, // Test amount
+                  amount: 24999, // Test amount
                   currency: "INR",
                   occasion: occasion
                 })
@@ -127,7 +127,7 @@ export default function ContactPage() {
             );
 
             const orderData = await orderResponse.json();
-            console.log("Order API Response:", orderData);
+            // console.log("Order API Response:", orderData);
 
             if (orderResponse.ok) {
               const paymentSessionId =
@@ -149,14 +149,14 @@ export default function ContactPage() {
                 alert("Failed to initiate payment. Please contact support.");
               }
             } else {
-              console.error("Order API request error:", orderData);
+              // console.error("Order API request error:", orderData);
               alert(
                 orderData.message ||
-                  "Failed to create payment order. Please try again."
+                "Failed to create payment order. Please try again."
               );
             }
           } catch (orderError) {
-            console.error("Error calling Order API:", orderError);
+            // console.error("Error calling Order API:", orderError);
             alert("Error creating payment order. Please try again.");
           }
         } else {
@@ -168,7 +168,7 @@ export default function ContactPage() {
         );
       }
     } catch (error) {
-      console.error("API Call Error:", error);
+      // console.error("API Call Error:", error);
       alert(error.message || "Failed to register user. Please try again.");
     } finally {
       setIsSubmitting(false);
@@ -304,11 +304,10 @@ export default function ContactPage() {
                         if (errors.name) setErrors({ ...errors, name: "" });
                       }}
                       placeholder="Enter your name"
-                      className={`w-full bg-bg-cream border rounded-xl px-4 py-3.5 text-[14.5px] text-text-dark outline-none transition-colors focus:border-primary ${
-                        errors.name
-                          ? "border-red-500 bg-red-50/10 focus:border-red-500"
-                          : "border-[#6E5644]/18"
-                      }`}
+                      className={`w-full bg-bg-cream border rounded-xl px-4 py-3.5 text-[14.5px] text-text-dark outline-none transition-colors focus:border-primary ${errors.name
+                        ? "border-red-500 bg-red-50/10 focus:border-red-500"
+                        : "border-[#6E5644]/18"
+                        }`}
                     />
                   </label>
                   {errors.name && (
@@ -339,11 +338,10 @@ export default function ContactPage() {
                             setErrors({ ...errors, phoneNumber: "" });
                         }}
                         placeholder="+919876543210"
-                        className={`w-full bg-bg-cream border rounded-xl px-4 py-3.5 text-[14.5px] text-text-dark outline-none transition-colors focus:border-primary ${
-                          errors.phoneNumber
-                            ? "border-red-500 bg-red-50/10 focus:border-red-500"
-                            : "border-[#6E5644]/18"
-                        }`}
+                        className={`w-full bg-bg-cream border rounded-xl px-4 py-3.5 text-[14.5px] text-text-dark outline-none transition-colors focus:border-primary ${errors.phoneNumber
+                          ? "border-red-500 bg-red-50/10 focus:border-red-500"
+                          : "border-[#6E5644]/18"
+                          }`}
                       />
                     </label>
                     {errors.phoneNumber && (
@@ -367,11 +365,10 @@ export default function ContactPage() {
                           if (errors.email) setErrors({ ...errors, email: "" });
                         }}
                         placeholder="you@example.com"
-                        className={`w-full bg-bg-cream border rounded-xl px-4 py-3.5 text-[14.5px] text-text-dark outline-none transition-colors focus:border-primary ${
-                          errors.email
-                            ? "border-red-500 bg-red-50/10 focus:border-red-500"
-                            : "border-[#6E5644]/18"
-                        }`}
+                        className={`w-full bg-bg-cream border rounded-xl px-4 py-3.5 text-[14.5px] text-text-dark outline-none transition-colors focus:border-primary ${errors.email
+                          ? "border-red-500 bg-red-50/10 focus:border-red-500"
+                          : "border-[#6E5644]/18"
+                          }`}
                       />
                     </label>
                     {errors.email && (
@@ -399,11 +396,10 @@ export default function ContactPage() {
                           setErrors({ ...errors, address: "" });
                       }}
                       placeholder="Enter your full address"
-                      className={`w-full bg-bg-cream border rounded-xl px-4 py-3.5 text-[14.5px] text-text-dark outline-none resize-none transition-colors focus:border-primary ${
-                        errors.address
-                          ? "border-red-500 bg-red-50/10 focus:border-red-500"
-                          : "border-[#6E5644]/18"
-                      }`}
+                      className={`w-full bg-bg-cream border rounded-xl px-4 py-3.5 text-[14.5px] text-text-dark outline-none resize-none transition-colors focus:border-primary ${errors.address
+                        ? "border-red-500 bg-red-50/10 focus:border-red-500"
+                        : "border-[#6E5644]/18"
+                        }`}
                     />
                   </label>
                   {errors.address && (
@@ -434,11 +430,10 @@ export default function ContactPage() {
                         if (errors.occasion)
                           setErrors({ ...errors, occasion: "" });
                       }}
-                      className={`w-full bg-bg-cream border rounded-xl px-4 py-3.5 text-[14.5px] text-text-dark outline-none transition-colors focus:border-primary ${
-                        errors.occasion
-                          ? "border-red-500 bg-red-50/10 focus:border-red-500"
-                          : "border-[#6E5644]/18"
-                      }`}
+                      className={`w-full bg-bg-cream border rounded-xl px-4 py-3.5 text-[14.5px] text-text-dark outline-none transition-colors focus:border-primary ${errors.occasion
+                        ? "border-red-500 bg-red-50/10 focus:border-red-500"
+                        : "border-[#6E5644]/18"
+                        }`}
                     >
                       <option value="">Select an occasion</option>
                       <option value="Birthday">Birthday</option>
@@ -476,11 +471,10 @@ export default function ContactPage() {
                             setErrors({ ...errors, occasion: "" });
                         }}
                         placeholder="Please specify the occasion"
-                        className={`w-full bg-bg-cream border rounded-xl px-4 py-3.5 text-[14.5px] text-text-dark outline-none transition-colors focus:border-primary ${
-                          errors.occasion
-                            ? "border-red-500 bg-red-50/10 focus:border-red-500"
-                            : "border-[#6E5644]/18"
-                        }`}
+                        className={`w-full bg-bg-cream border rounded-xl px-4 py-3.5 text-[14.5px] text-text-dark outline-none transition-colors focus:border-primary ${errors.occasion
+                          ? "border-red-500 bg-red-50/10 focus:border-red-500"
+                          : "border-[#6E5644]/18"
+                          }`}
                       />
                     </label>
                   </div>
@@ -507,11 +501,10 @@ export default function ContactPage() {
                           setErrors({ ...errors, description: "" });
                       }}
                       placeholder="Describe the cinematic film details or legacy instructions..."
-                      className={`w-full bg-bg-cream border rounded-xl px-4 py-3.5 text-[14.5px] text-text-dark outline-none resize-y transition-colors focus:border-primary ${
-                        errors.description
-                          ? "border-red-500 bg-red-50/10 focus:border-red-500"
-                          : "border-[#6E5644]/18"
-                      }`}
+                      className={`w-full bg-bg-cream border rounded-xl px-4 py-3.5 text-[14.5px] text-text-dark outline-none resize-y transition-colors focus:border-primary ${errors.description
+                        ? "border-red-500 bg-red-50/10 focus:border-red-500"
+                        : "border-[#6E5644]/18"
+                        }`}
                     />
                   </label>
                   {errors.description && (
@@ -554,11 +547,10 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-4.5 rounded-full text-[12px] tracking-[0.16em] uppercase font-semibold transition-all duration-400 cursor-pointer flex items-center justify-center gap-2 ${
-                    isSubmitting
-                      ? "bg-neutral-400 text-bg-dark cursor-not-allowed"
-                      : "bg-bg-dark text-bg-cream hover:bg-primary hover:text-bg-dark"
-                  }`}
+                  className={`w-full py-4.5 rounded-full text-[12px] tracking-[0.16em] uppercase font-semibold transition-all duration-400 cursor-pointer flex items-center justify-center gap-2 ${isSubmitting
+                    ? "bg-neutral-400 text-bg-dark cursor-not-allowed"
+                    : "bg-bg-dark text-bg-cream hover:bg-primary hover:text-bg-dark"
+                    }`}
                 >
                   {isSubmitting ? (
                     <>
