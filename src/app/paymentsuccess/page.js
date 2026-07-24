@@ -308,12 +308,18 @@ function PaymentSuccessContent() {
         <form onSubmit={handleFormSubmit} className="space-y-6">
           {/* Drive Link field */}
           <div className="space-y-2">
-            <label htmlFor="driveLink" className="font-sans text-xs font-semibold uppercase tracking-wider text-text-dark flex items-center justify-between">
-              <span>Provide Photos Folder URL</span>
-              <span className="text-[11px] font-normal text-primary flex items-center gap-1 normal-case font-sans">
-                <Info size={13} className="shrink-0" /> Share with support@journeysoflife.co or enable public link
-              </span>
-            </label>
+            <div className="flex flex-col gap-1">
+              <label htmlFor="driveLink" className="font-sans text-xs font-semibold uppercase tracking-wider text-text-dark">
+                Google Drive / Dropbox / OneDrive Link
+              </label>
+              <p className="text-xs text-text-gray font-normal leading-relaxed">
+                Provide the folder URL containing all project assets (photos, videos, reference materials, and any other relevant files).
+              </p>
+              <div className="flex items-center gap-1.5 text-[11px] text-primary font-normal font-sans pt-0.5">
+                <Info size={13} className="shrink-0 text-primary" />
+                <span>Share access with <strong className="font-semibold">support@journeysoflife.co</strong> or ensure the link is set to public.</span>
+              </div>
+            </div>
             <input
               id="driveLink"
               type="url"
@@ -333,9 +339,14 @@ function PaymentSuccessContent() {
 
           {/* Description field */}
           <div className="space-y-2">
-            <label htmlFor="description" className="font-sans text-xs font-semibold uppercase tracking-wider text-text-dark">
-              Share your vision, timeline, style, and any special instructions for your film
-            </label>
+            <div className="flex flex-col gap-1">
+              <label htmlFor="description" className="font-sans text-xs font-semibold uppercase tracking-wider text-text-dark">
+                Creative Vision &amp; Special Instructions
+              </label>
+              <p className="text-xs text-text-gray font-normal leading-relaxed">
+                Share your project details, creative vision, timeline, preferred style, and any special requirements or instructions for your film.
+              </p>
+            </div>
             <textarea
               id="description"
               rows={6}
@@ -344,7 +355,7 @@ function PaymentSuccessContent() {
                 setFormData({ ...formData, description: e.target.value });
                 if (formErrors.description) setFormErrors({ ...formErrors, description: "" });
               }}
-              placeholder="Please share special instructions (e.g., chronological order, focus on grandfather's speech at the 20th minute, include wedding anniversary dates, etc.)..."
+              placeholder="Please share special instructions (e.g., chronological order, focus on grandfather's speech at the 20th minute, include wedding anniversary dates, etc.)...."
               className={`w-full rounded-xl border px-4 py-3.5 text-sm font-sans outline-none transition duration-300 resize-y ${formErrors.description
                 ? "border-red-400 bg-red-50/10 focus:border-red-500 focus:ring-4 focus:ring-red-500/5"
                 : "border-[#6E5644]/20 bg-[#F8F5EF]/30 focus:border-primary focus:ring-4 focus:ring-primary/5"

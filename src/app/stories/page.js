@@ -8,11 +8,23 @@ import Reveal from "@/components/Reveal";
 
 import heroImg from '../../../public/assets/stories/everydayMoments.png';
 
+import twoFamiliesImg from '../../../public/assets/stories/twoFamiliesOneFilm.png';
+import forAppa from '../../../public/assets/stories/forAppaWithLove.png';
+import aaravImg from '../../../public/assets/stories/aaravTurnsOne.png';
+import anniversaryImg from '../../../public/assets/stories/50GoldenYears.png';
+import familyStory from '../../../public/assets/stories/everydayMoments.png';
+import graduationImg from '../../../public/assets/stories/firstToFinish.png';
+
+import storiesImg from '../../../public/assets/stories/stories.png'
+
+
+
 export default function StoriesPage() {
   const [videoModal, setVideoModal] = useState({ isOpen: false, title: "", videoUrl: "" });
 
   const stories = [
     {
+      src:twoFamiliesImg,
       id: "st-1",
       category: "Wedding",
       title: "Two families, one film",
@@ -20,6 +32,7 @@ export default function StoriesPage() {
       placeholder: "wedding story still"
     },
     {
+      src:forAppa,
       id: "st-2",
       category: "Memorial",
       title: "For Appa, with love",
@@ -27,6 +40,7 @@ export default function StoriesPage() {
       placeholder: "memorial story still"
     },
     {
+      src:aaravImg,
       id: "st-3",
       category: "First Birthday",
       title: "Aarav turns one",
@@ -34,6 +48,7 @@ export default function StoriesPage() {
       placeholder: "first birthday story still"
     },
     {
+      src:anniversaryImg,
       id: "st-4",
       category: "Anniversary",
       title: "Fifty golden years",
@@ -41,6 +56,7 @@ export default function StoriesPage() {
       placeholder: "anniversary story still"
     },
     {
+      src:familyStory,
       id: "st-5",
       category: "Family",
       title: "The house on the hill",
@@ -48,6 +64,7 @@ export default function StoriesPage() {
       placeholder: "family story still"
     },
     {
+      src:graduationImg,
       id: "st-6",
       category: "Graduation",
       title: "The first to finish",
@@ -162,7 +179,7 @@ export default function StoriesPage() {
                 <Reveal key={story.id} delay={0.08 * (i % 3)} className="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-[0_18px_40px_-26px_rgba(110,86,68,0.5)] hover:translate-y-[-6px] hover:shadow-[0_30px_60px_-28px_rgba(110,86,68,0.55)] transition-all duration-500">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-106">
-                      <ImageSlot id={story.id} shape="rect" placeholder={story.placeholder} />
+                      <ImageSlot src={story.src} id={story.id} shape="rect" placeholder={story.placeholder} />
                     </div>
                     <span className="absolute top-[14px] left-[14px] bg-bg-dark/60 text-bg-cream text-[10px] tracking-[0.16em] uppercase px-3 py-1.5 rounded-full font-semibold">
                       {story.category}
@@ -181,7 +198,7 @@ export default function StoriesPage() {
         {/* ============ FINAL CTA ============ */}
         <section className="relative min-h-[64vh] flex items-center overflow-hidden py-[100px]">
           <div className="absolute inset-0">
-            <ImageSlot id="cta-band-bg" shape="rect" placeholder="Sunset · family together · cinematic" />
+            <ImageSlot src={storiesImg} id="cta-band-bg" shape="rect" placeholder="Sunset · family together · cinematic" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-bg-dark/85 via-bg-dark/45 to-bg-dark/60 pointer-events-none"></div>
           

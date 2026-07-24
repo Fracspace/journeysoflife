@@ -360,7 +360,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-bg-dark/50 to-transparent pointer-events-none"></div>
               </div>
               <button
-                // onClick={() => openVideo("Ivaan Turns One — Preview", ivaanBdayVideo)}
+                onClick={() => openVideo("Ivaan Turns One — Preview")}
                 className="absolute inset-0 m-auto w-[88px] h-[88px] border-none bg-[#F8F5EF]/92 rounded-full grid place-items-center cursor-pointer shadow-[0_20px_50px_-12px_rgba(30,27,24,0.6)] hover:scale-108 hover:bg-[#D6B36A] transition-all duration-300"
               >
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="#1E1B18" className="ml-1">
@@ -570,7 +570,7 @@ export default function Home() {
             <div className="flex justify-between items-center p-4 border-b border-white/10 bg-zinc-950 text-white">
               <h3 className="font-cormorant text-2xl font-semibold">{videoModal.title}</h3>
               <button
-                onClick={() => setVideoModal({ isOpen: false, title: "", videoUrl: "" })}
+                onClick={() => setVideoModal({ isOpen: false, title: "", videoUrl: "https://duixj37yn5405.cloudfront.net/videos/First+Birthday+of+IVAAN+.mp4" })}
                 className="text-zinc-400 hover:text-white p-1"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -580,7 +580,7 @@ export default function Home() {
             </div>
             <div className="aspect-video bg-black">
               <video
-                src={videoModal.videoUrl}
+                src="https://duixj37yn5405.cloudfront.net/videos/First+Birthday+of+IVAAN+.mp4"
                 controls
                 autoPlay
                 className="w-full h-full"

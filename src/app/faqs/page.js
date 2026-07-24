@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 import ImageSlot from "@/components/ImageSlot";
 import Reveal from "@/components/Reveal";
 
+import storesImg from '../../../public/assets/stories/stories.png';
+import img1 from '../../../public/assets/contact/img1.png';
+
 export default function FAQsPage() {
   const [expandedIndex, setExpandedIndex] = useState(null);
 
@@ -77,7 +80,7 @@ export default function FAQsPage() {
             </div>
 
             <Reveal className="relative aspect-[5/4] rounded-[200px_24px_200px_24px] overflow-hidden shadow-[0_40px_90px_-34px_rgba(110,86,68,0.55)]">
-              <ImageSlot id="faq-hero" shape="rect" placeholder="Warm hands writing a letter · soft light" />
+              <ImageSlot src={storesImg} id="faq-hero" shape="rect" placeholder="Warm hands writing a letter · soft light" />
               <div className="absolute inset-0 bg-gradient-to-tr from-bg-dark/20 via-transparent to-primary-light/20 pointer-events-none"></div>
             </Reveal>
           </div>
@@ -149,7 +152,7 @@ export default function FAQsPage() {
         {/* ============ FINAL CTA ============ */}
         <section className="relative min-h-[64vh] flex items-center overflow-hidden py-[100px]">
           <div className="absolute inset-0">
-            <ImageSlot id="cta-band-bg" shape="rect" placeholder="Sunset · family together · cinematic" />
+            <ImageSlot src={img1} id="cta-band-bg" shape="rect" placeholder="Sunset · family together · cinematic" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-bg-dark/85 via-bg-dark/45 to-bg-dark/60 pointer-events-none"></div>
           

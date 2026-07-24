@@ -22,7 +22,6 @@ export default function Navbar() {
     { name: "Stories", href: "/stories" },
     { name: "How It Works", href: "/how-it-works" },
     { name: "Gallery", href: "/gallery" },
-    { name: "Pricing", href: "/pricing" },
   ];
 
 

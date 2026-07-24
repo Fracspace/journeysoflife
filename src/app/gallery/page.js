@@ -6,28 +6,58 @@ import Footer from "@/components/Footer";
 import ImageSlot from "@/components/ImageSlot";
 import Reveal from "@/components/Reveal";
 
+
+import heroImg from '../../../public/assets/gallery/v1.png';
+import bannerImg from '../../../public/assets/gallery/v2.png';
+
+import weddingImg from '../../../public/assets/gallery/wedding.png';
+import wedding2Img from '../../../public/assets/gallery/wedding2.png';
+import wedding3Img from '../../../public/assets/gallery/weddin3.png';
+
+import b1Img from '../../../public/assets/gallery/b1.png';
+import b2Img from '../../../public/assets/gallery/b2.png';
+import b3Img from '../../../public/assets/gallery/b3.png';
+
+import bb1Img from '../../../public/assets/gallery/bb1.png';
+import bb2Img from '../../../public/assets/gallery/bb2.png';
+
+
+import v1Img from '../../../public/assets/gallery/v1.png';
+import v2Img from '../../../public/assets/gallery/v2.png';
+
+
+import g1Img from '../../../public/assets/gallery/g1.png';
+import g2Img from '../../../public/assets/gallery/g2.png';
+
+
+import fest1Img from '../../../public/assets/gallery/fest1.png';
+import fest2Img from '../../../public/assets/gallery/fest2.png';
+
+import f1Img from '../../../public/assets/gallery/f1.png';
+import f2Img from '../../../public/assets/gallery/f2.png';
+
 export default function GalleryPage() {
   const [filter, setFilter] = useState("All");
 
   const categories = ["All", "Wedding", "Birthday", "Baby", "Vacation", "Graduation", "Festivals", "Family"];
 
   const galleryItems = [
-    { id: "gal-0", cat: "Wedding", ar: "aspect-[3/4]", p: "wedding · warm" },
-    { id: "gal-1", cat: "Baby", ar: "aspect-[1/1]", p: "baby · warm" },
-    { id: "gal-2", cat: "Family", ar: "aspect-[4/5]", p: "family · warm" },
-    { id: "gal-3", cat: "Birthday", ar: "aspect-[3/4]", p: "birthday · warm" },
-    { id: "gal-4", cat: "Festivals", ar: "aspect-[1/1]", p: "festivals · warm" },
-    { id: "gal-5", cat: "Vacation", ar: "aspect-[4/3]", p: "vacation · warm" },
-    { id: "gal-6", cat: "Graduation", ar: "aspect-[3/4]", p: "graduation · warm" },
-    { id: "gal-7", cat: "Family", ar: "aspect-[1/1]", p: "family · warm" },
-    { id: "gal-8", cat: "Wedding", ar: "aspect-[4/5]", p: "wedding · warm" },
-    { id: "gal-9", cat: "Baby", ar: "aspect-[3/4]", p: "baby · warm" },
-    { id: "gal-10", cat: "Birthday", ar: "aspect-[1/1]", p: "birthday · warm" },
-    { id: "gal-11", cat: "Vacation", ar: "aspect-[3/4]", p: "vacation · warm" },
-    { id: "gal-12", cat: "Festivals", ar: "aspect-[4/5]", p: "festivals · warm" },
-    { id: "gal-13", cat: "Family", ar: "aspect-[3/4]", p: "family · warm" },
-    { id: "gal-14", cat: "Graduation", ar: "aspect-[1/1]", p: "graduation · warm" },
-    { id: "gal-15", cat: "Wedding", ar: "aspect-[4/3]", p: "wedding · warm" }
+    { id: "gal-0",src:weddingImg, cat: "Wedding", ar: "aspect-[3/4]", p: "wedding · warm" },
+    { id: "gal-1",src:bb1Img, cat: "Baby", ar: "aspect-[1/1]", p: "baby · warm" },
+    { id: "gal-2",src:f1Img, cat: "Family", ar: "aspect-[4/5]", p: "family · warm" },
+    { id: "gal-3",src:b1Img, cat: "Birthday", ar: "aspect-[3/4]", p: "birthday · warm" },
+    { id: "gal-4",src:f1Img, cat: "Festivals", ar: "aspect-[1/1]", p: "festivals · warm" },
+    { id: "gal-5",src:v1Img, cat: "Vacation", ar: "aspect-[4/3]", p: "vacation · warm" },
+    { id: "gal-6",src:g1Img, cat: "Graduation", ar: "aspect-[3/4]", p: "graduation · warm" },
+    { id: "gal-7",src:f2Img, cat: "Family", ar: "aspect-[1/1]", p: "family · warm" },
+    { id: "gal-8",src:wedding2Img, cat: "Wedding", ar: "aspect-[4/5]", p: "wedding · warm" },
+    { id: "gal-9",src:bb2Img, cat: "Baby", ar: "aspect-[3/4]", p: "baby · warm" },
+    { id: "gal-10",src:b2Img, cat: "Birthday", ar: "aspect-[1/1]", p: "birthday · warm" },
+    { id: "gal-11",src:v2Img, cat: "Vacation", ar: "aspect-[3/4]", p: "vacation · warm" },
+    { id: "gal-12",src:fest1Img, cat: "Festivals", ar: "aspect-[4/5]", p: "festivals · warm" },
+    // { id: "gal-13",src:f cat: "Family", ar: "aspect-[3/4]", p: "family · warm" },
+    { id: "gal-14",src:g2Img, cat: "Graduation", ar: "aspect-[1/1]", p: "graduation · warm" },
+    // { id: "gal-15", cat: "Wedding", ar: "aspect-[4/3]", p: "wedding · warm" }
   ];
 
   const filteredItems = filter === "All" 
@@ -63,7 +93,7 @@ export default function GalleryPage() {
             </div>
 
             <Reveal className="relative aspect-[5/4] rounded-[200px_24px_200px_24px] overflow-hidden shadow-[0_40px_90px_-34px_rgba(110,86,68,0.55)]">
-              <ImageSlot id="gal-hero" shape="rect" placeholder="Wall of framed family photographs · warm" />
+              <ImageSlot src={heroImg} id="gal-hero" shape="rect" placeholder="Wall of framed family photographs · warm" />
               <div className="absolute inset-0 bg-gradient-to-tr from-bg-dark/20 via-transparent to-primary-light/20 pointer-events-none"></div>
             </Reveal>
           </div>
@@ -100,7 +130,7 @@ export default function GalleryPage() {
                 >
                   <div className={`relative ${item.ar} overflow-hidden`}>
                     <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-107">
-                      <ImageSlot id={item.id} shape="rect" placeholder={item.p} />
+                      <ImageSlot src={item.src} id={item.id} shape="rect" placeholder={item.p} />
                     </div>
                     {/* Hover Caption */}
                     <div className="absolute inset-0 bg-gradient-to-t from-bg-dark/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -119,7 +149,7 @@ export default function GalleryPage() {
         {/* ============ FINAL CTA ============ */}
         <section className="relative min-h-[64vh] flex items-center overflow-hidden py-[100px]">
           <div className="absolute inset-0">
-            <ImageSlot id="cta-band-bg" shape="rect" placeholder="Sunset · family together · cinematic" />
+            <ImageSlot src={bannerImg} id="cta-band-bg" shape="rect" placeholder="Sunset · family together · cinematic" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-bg-dark/85 via-bg-dark/45 to-bg-dark/60 pointer-events-none"></div>
           
