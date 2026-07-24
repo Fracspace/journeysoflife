@@ -62,7 +62,7 @@ export default function HowItWorksPage() {
       desc: "We refine colour, sound and timing until every second feels right — no detail too small.",
       placeholder: "step 05 · refinement",
       alignLeft: true
-    },
+    }
     // {
     //   num: "06",
     //   title: "Delivery",
@@ -248,6 +248,7 @@ export default function HowItWorksPage() {
                     {!step.alignLeft && (
                       <div className="relative aspect-[5/3] rounded-2xl overflow-hidden shadow-lg border border-primary/10 mt-3">
                         <ImageSlot
+                          src={step.src}
                           id={`how-step-mob-${i}`}
                           shape="rect"
                           placeholder={step.placeholder}
@@ -257,6 +258,7 @@ export default function HowItWorksPage() {
                     {step.alignLeft && (
                       <div className="relative aspect-[5/3] rounded-2xl overflow-hidden shadow-lg border border-primary/10 mt-3">
                         <ImageSlot
+                          src={step.src}
                           id={`how-step-mob-${i}`}
                           shape="rect"
                           placeholder={step.placeholder}

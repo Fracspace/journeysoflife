@@ -53,7 +53,7 @@ function PaymentSuccessContent() {
         });
 
         const data = await response.json();
-        console.log("Verify Payment Response:", data);
+        // console.log("Verify Payment Response:", data);
 
         if (response.ok && data.success) {
           setVerificationStatus("success");
