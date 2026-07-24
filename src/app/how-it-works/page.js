@@ -63,13 +63,13 @@ export default function HowItWorksPage() {
       placeholder: "step 05 · refinement",
       alignLeft: true
     },
-    {
-      num: "06",
-      title: "Delivery",
-      desc: "Your finished film arrives beautifully packaged, ready to watch, share and keep forever.",
-      placeholder: "step 06 · delivery",
-      alignLeft: false
-    }
+    // {
+    //   num: "06",
+    //   title: "Delivery",
+    //   desc: "Your finished film arrives beautifully packaged, ready to watch, share and keep forever.",
+    //   placeholder: "step 06 · delivery",
+    //   alignLeft: false
+    // }
   ];
 
   const inclusions = [
@@ -171,7 +171,7 @@ export default function HowItWorksPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="text-center font-cormorant font-normal text-[30px] md:text-[52px] mb-16 text-text-dark">
-                Six careful steps, one timeless film.
+                Five careful steps, one timeless film.
               </h2>
             </Reveal>
 
