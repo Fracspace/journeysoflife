@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import ImageSlot from "@/components/ImageSlot";
 import Reveal from "@/components/Reveal";
 
+import heroImg from '../../../public/assets/stories/everydayMoments.png';
+
 export default function StoriesPage() {
   const [videoModal, setVideoModal] = useState({ isOpen: false, title: "", videoUrl: "" });
 
@@ -87,14 +89,14 @@ export default function StoriesPage() {
             </div>
 
             <Reveal className="relative aspect-[5/4] rounded-[200px_24px_200px_24px] overflow-hidden shadow-[0_40px_90px_-34px_rgba(110,86,68,0.55)]">
-              <ImageSlot id="st-hero" shape="rect" placeholder="Family looking through old albums · warm light" />
+              <ImageSlot src={heroImg} id="st-hero" shape="rect" placeholder="Family looking through old albums · warm light" />
               <div className="absolute inset-0 bg-gradient-to-tr from-bg-dark/20 via-transparent to-primary-light/20 pointer-events-none"></div>
             </Reveal>
           </div>
         </section>
 
         {/* ============ FEATURED STORY ============ */}
-        <section className="py-[110px] bg-bg-cream">
+        {/* <section className="py-[110px] bg-bg-cream">
           <div className="max-w-[1320px] mx-auto px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
               
@@ -139,7 +141,7 @@ export default function StoriesPage() {
 
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* ============ MORE STORIES ============ */}
         <section className="py-20 bg-gradient-to-b from-bg-cream to-bg-tan">

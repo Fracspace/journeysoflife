@@ -68,7 +68,7 @@ export default function HowItWorksPage() {
       <Navbar />
 
       <main className="relative flex-1">
-        
+
         {/* ============ HERO ============ */}
         <section className="relative bg-gradient-to-r from-bg-cream to-bg-tan pt-[158px] pb-[90px] overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_30%,rgba(214,179,106,0.1),transparent_45%)] pointer-events-none"></div>
@@ -101,7 +101,7 @@ export default function HowItWorksPage() {
         {/* ============ PROCESS TIMELINE ============ */}
         <section className="py-[110px] bg-bg-cream">
           <div className="max-w-[1040px] mx-auto px-6 md:px-10">
-            
+
             <Reveal className="flex items-center justify-center gap-3.5 mb-4">
               <span className="w-9 h-[1px] bg-primary"></span>
               <span className="text-[11px] tracking-[0.36em] uppercase text-primary font-semibold">The Process</span>
@@ -119,12 +119,12 @@ export default function HowItWorksPage() {
               <div className="absolute left-[30px] md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-primary to-transparent -translate-x-[0.5px]"></div>
 
               {steps.map((step, i) => (
-                <Reveal 
-                  key={step.num} 
-                  delay={0.05} 
+                <Reveal
+                  key={step.num}
+                  delay={0.05}
                   className={`grid grid-cols-[60px_1fr] md:grid-cols-[1fr_88px_1fr] items-center mb-11 last:mb-0`}
                 >
-                  
+
                   {/* LEFT COLUMN */}
                   <div className={`pl-4 md:pl-0 ${step.alignLeft ? "md:text-right md:pr-4.5 order-2 md:order-1" : "hidden md:block order-2 md:order-1"}`}>
                     {step.alignLeft ? (
@@ -269,9 +269,9 @@ export default function HowItWorksPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {inclusions.map((inc, i) => (
-                <Reveal 
-                  key={inc.num} 
-                  delay={0.07 * (i % 4)} 
+                <Reveal
+                  key={inc.num}
+                  delay={0.07 * (i % 4)}
                   className="bg-white rounded-2xl p-7.5 shadow-[0_18px_40px_-28px_rgba(110,86,68,0.5)] border border-primary/5"
                 >
                   <div className="w-12 h-12 rounded-xl bg-bg-cream border border-primary/30 grid place-items-center mb-[18px]">
@@ -291,7 +291,7 @@ export default function HowItWorksPage() {
             <ImageSlot id="cta-band-bg" shape="rect" placeholder="Sunset · family together · cinematic" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-bg-dark/85 via-bg-dark/45 to-bg-dark/60 pointer-events-none"></div>
-          
+
           <div className="relative max-w-[1320px] mx-auto px-6 md:px-10 w-full z-10">
             <div className="max-w-[600px]">
               <Reveal>
@@ -307,7 +307,7 @@ export default function HowItWorksPage() {
                   href="/contact"
                   className="inline-flex items-center gap-3.5 bg-[#D6B36A] text-[#1E1B18] px-8.5 py-5 rounded-full text-[12.5px] tracking-[0.16em] uppercase font-semibold transition-all duration-400 hover:bg-[#F8F5EF] hover:-translate-y-1"
                 >
-                  Begin Your Journey 
+                  Begin Your Journey
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>

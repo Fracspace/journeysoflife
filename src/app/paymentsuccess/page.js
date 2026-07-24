@@ -79,7 +79,7 @@ function PaymentSuccessContent() {
   const validateForm = () => {
     const errors = {};
     if (!formData.driveLink.trim()) {
-      errors.driveLink = "Google Drive folder URL is required";
+      errors.driveLink = "URL is required";
     } else if (!formData.driveLink.startsWith("http")) {
       errors.driveLink = "Please enter a valid URL (e.g. https://drive.google.com/...)";
     }
@@ -188,7 +188,7 @@ function PaymentSuccessContent() {
     return (
       <div className="relative mx-auto max-w-2xl bg-white rounded-3xl p-8 md:p-12 shadow-[0_20px_60px_-15px_rgba(110,86,68,0.18)] border border-primary-light/30 text-center space-y-6 overflow-hidden">
         <Confetti />
-        
+
         <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#F8F5EF] border border-primary/30 relative z-20">
           <CheckCircle2 size={40} className="text-primary" />
         </div>
@@ -281,7 +281,7 @@ function PaymentSuccessContent() {
           <div className="flex items-start gap-2.5">
             <div className="h-5 w-5 rounded-full bg-primary/10 text-primary flex items-center justify-center text-[11px] font-bold mt-0.5 shrink-0">2</div>
             <p className="font-sans text-xs leading-relaxed text-text-gray">
-              Set folder permissions to <strong className="text-text-dark font-semibold">Anyone with link can view</strong>.
+              Set folder permissions to <strong className="text-text-dark font-semibold">Anyone with link can view</strong> or share/give access to <strong className="text-text-dark font-semibold">support@journeysoflife.co</strong>.
             </p>
           </div>
           <div className="flex items-start gap-2.5">
@@ -309,9 +309,9 @@ function PaymentSuccessContent() {
           {/* Drive Link field */}
           <div className="space-y-2">
             <label htmlFor="driveLink" className="font-sans text-xs font-semibold uppercase tracking-wider text-text-dark flex items-center justify-between">
-              <span>Google Drive Folder URL</span>
+              <span>Provide Photos Folder URL</span>
               <span className="text-[11px] font-normal text-primary flex items-center gap-1 normal-case font-sans">
-                <Info size={13} className="shrink-0" /> Ensure link sharing is active
+                <Info size={13} className="shrink-0" /> Share with support@journeysoflife.co or enable public link
               </span>
             </label>
             <input
@@ -334,7 +334,7 @@ function PaymentSuccessContent() {
           {/* Description field */}
           <div className="space-y-2">
             <label htmlFor="description" className="font-sans text-xs font-semibold uppercase tracking-wider text-text-dark">
-              Editing Directions &amp; Description
+              Share your vision, timeline, style, and any special instructions for your film
             </label>
             <textarea
               id="description"
@@ -381,11 +381,11 @@ export default function PaymentSuccessPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      
+
       <main className="relative flex-grow bg-bg-cream pt-32 pb-24 md:pt-36 md:pb-32 overflow-hidden">
         {/* Subtle decorative background gradient matching home page hero styling */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(214,179,106,0.08),transparent_50%)] pointer-events-none"></div>
-        
+
         <div className="max-w-[1320px] mx-auto px-6 md:px-10 relative z-10">
           <Suspense fallback={
             <div className="flex flex-col items-center justify-center min-h-[40vh] space-y-4">

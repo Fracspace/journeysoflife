@@ -18,6 +18,7 @@ export default function ContactPage() {
     description: "",
   });
 
+  const [selectedOccasion, setSelectedOccasion] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
@@ -65,6 +66,8 @@ export default function ContactPage() {
     e.preventDefault();
     if (!validate()) return;
     setIsSubmitting(true);
+
+    console.log("ocasion", formData?.occasion)
 
     try {
       const response = await fetch("https://api.journeysoflife.co/api/users/create", {
@@ -217,7 +220,7 @@ export default function ContactPage() {
               </Reveal>
               <Reveal delay={0.2}>
                 <p className="text-[16.5px] leading-relaxed text-text-gray max-w-[460px]">
-                  Provide your details and pay the booking amount of ₹24,999. Once payment is confirmed, we will begin production of your cinematic documentary.
+                  Provide your details and complete the amount of ₹24,999. Once you fill this form and pay, you will be redirected to a success page to upload your images and describe how you want your cinematic film to be.
                 </p>
               </Reveal>
             </div>
@@ -330,27 +333,60 @@ export default function ContactPage() {
                 <div className="mb-4.5">
                   <label className="block">
                     <span className="block text-[11px] tracking-[0.14em] uppercase text-text-gray font-semibold mb-2">Occasion</span>
-                    <input
+                    <select
                       required
-                      type="text"
-                      name="occasion"
-                      value={formData.occasion}
+                      name="occasionSelect"
+                      value={selectedOccasion}
                       onChange={(e) => {
-                        setFormData({ ...formData, occasion: e.target.value });
+                        const val = e.target.value;
+                        setSelectedOccasion(val);
+                        if (val !== "other") {
+                          setFormData({ ...formData, occasion: val });
+                        } else {
+                          setFormData({ ...formData, occasion: "" });
+                        }
                         if (errors.occasion) setErrors({ ...errors, occasion: "" });
                       }}
-                      placeholder="e.g. Wedding Anniversary, Birthday"
                       className={`w-full bg-bg-cream border rounded-xl px-4 py-3.5 text-[14.5px] text-text-dark outline-none transition-colors focus:border-primary ${errors.occasion ? "border-red-500 bg-red-50/10 focus:border-red-500" : "border-[#6E5644]/18"
                         }`}
-                    />
+                    >
+                      <option value="">Select an occasion</option>
+                      <option value="Birthday">Birthday</option>
+                      <option value="Anniversary">Anniversary</option>
+                      <option value="ChildGrowth">ChildGrowth</option>
+                      <option value="MemoryFilm">MemoryFilm</option>
+                      <option value="other">Other</option>
+                    </select>
                   </label>
                   {errors.occasion && <p className="mt-1 text-xs text-red-500 font-sans">{errors.occasion}</p>}
                 </div>
 
+                {/* Custom Occasion Input */}
+                {selectedOccasion === "other" && (
+                  <div className="mb-4.5 animate-fadeIn">
+                    <label className="block">
+                      <span className="block text-[11px] tracking-[0.14em] uppercase text-text-gray font-semibold mb-2">Specify Occasion</span>
+                      <input
+                        required
+                        type="text"
+                        name="customOccasion"
+                        value={formData.occasion}
+                        onChange={(e) => {
+                          setFormData({ ...formData, occasion: e.target.value });
+                          if (errors.occasion) setErrors({ ...errors, occasion: "" });
+                        }}
+                        placeholder="Please specify the occasion"
+                        className={`w-full bg-bg-cream border rounded-xl px-4 py-3.5 text-[14.5px] text-text-dark outline-none transition-colors focus:border-primary ${errors.occasion ? "border-red-500 bg-red-50/10 focus:border-red-500" : "border-[#6E5644]/18"
+                          }`}
+                      />
+                    </label>
+                  </div>
+                )}
+
                 {/* Description */}
                 <div className="mb-6">
                   <label className="block">
-                    <span className="block text-[11px] tracking-[0.14em] uppercase text-text-gray font-semibold mb-2">Description</span>
+                    <span className="block text-[11px] tracking-[0.14em] uppercase text-text-gray font-semibold mb-2">Describe your film, timeline, and any special instructions.</span>
                     <textarea
                       required
                       name="description"
@@ -368,9 +404,19 @@ export default function ContactPage() {
                   {errors.description && <p className="mt-1 text-xs text-red-500 font-sans">{errors.description}</p>}
                 </div>
 
+                {/* Redirection / Step 2 Alert */}
+                <div className="bg-[#EFE7DA]/50 border border-[#B38A42]/15 rounded-xl p-4 text-[12px] leading-relaxed text-text-gray mb-6 flex gap-2.5">
+                  <svg className="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 111.063.852l-.708 2.836a.75.75 0 001.063.852l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+                  </svg>
+                  <span>
+                    Once you fill this form and pay the amount, you will be automatically redirected to a secure page to upload your memories/images and describe how you want your film to be.
+                  </span>
+                </div>
+
                 {/* Booking Amount */}
                 <div className="bg-bg-cream border border-[#6E5644]/18 rounded-xl p-4 flex justify-between items-center text-sm mb-6.5">
-                  <span className="text-text-gray font-semibold">Booking Amount:</span>
+                  <span className="text-text-gray font-semibold">Amount:</span>
                   <span className="font-semibold text-lg text-text-dark">₹24,999</span>
                 </div>
 
@@ -390,7 +436,7 @@ export default function ContactPage() {
                   ) : (
                     <>
                       <Upload size={18} />
-                      <span>Pay ₹24,999 &amp; Start Your Film</span>
+                      <span>Pay ₹24,999 TO START MAKING YOUR FILM</span>
                     </>
                   )}
                 </button>
@@ -420,7 +466,7 @@ export default function ContactPage() {
                   </span>
                   <div>
                     <div className="text-[11px] tracking-[0.14em] uppercase text-text-gray font-semibold">Email</div>
-                    <div className="text-[15px] text-text-dark font-medium">hello@journeysoflife.com</div>
+                    <div className="text-[15px] text-text-dark font-medium">support@journeysoflife.co</div>
                   </div>
                 </div>
 
@@ -433,7 +479,7 @@ export default function ContactPage() {
                   </span>
                   <div>
                     <div className="text-[11px] tracking-[0.14em] uppercase text-text-gray font-semibold">Phone &amp; WhatsApp</div>
-                    <div className="text-[15px] text-text-dark font-medium">+91 98765 43210</div>
+                    <div className="text-[15px] text-text-dark font-medium">+91 92479 52344</div>
                   </div>
                 </div>
 
@@ -447,7 +493,7 @@ export default function ContactPage() {
                   </span>
                   <div>
                     <div className="text-[11px] tracking-[0.14em] uppercase text-text-gray font-semibold">Studio</div>
-                    <div className="text-[15px] text-text-dark font-medium">Mumbai · By appointment</div>
+                    <div className="text-[15px] text-text-dark font-medium">Banjara Hills, Hyderabad · By appointment</div>
                   </div>
                 </div>
 
