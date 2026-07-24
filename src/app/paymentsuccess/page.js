@@ -199,7 +199,7 @@ function PaymentSuccessContent() {
             Thank you for sharing your photos, videos, and project details.
           </p>
           <p className="mx-auto max-w-md font-sans text-sm leading-relaxed text-text-gray">
-            Our team has received your submission and will review everything carefully. We'll reach out to you shortly to discuss the next steps and keep you updated throughout the production process.
+            Our team has received your submission and will review everything carefully. We'll reach out to you shortly to discuss the next steps and keep you updated throughout the process.
           </p>
         </div>
 
